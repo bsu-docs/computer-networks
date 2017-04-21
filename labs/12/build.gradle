@@ -1,0 +1,48 @@
+apply plugin: 'cpp'
+
+model {
+  binaries {
+    all {
+      cppCompiler.args "-std=c++14"
+      linker.args "-lpthread"
+    }
+  }
+  components {
+    task1_client(NativeExecutableSpec) {
+      sources.cpp.source {
+        srcDir '.'
+        include 'task1_client.cpp'
+      }
+    }
+    task1_server(NativeExecutableSpec) {
+      sources.cpp.source {
+        srcDir '.'
+        include 'task1_server.cpp'
+      }
+    }
+    task2_client(NativeExecutableSpec) {
+      sources.cpp.source {
+        srcDir '.'
+        include 'task2_client.cpp'
+      }
+    }
+    task2_server(NativeExecutableSpec) {
+      sources.cpp.source {
+        srcDir '.'
+        include 'task2_server.cpp'
+      }
+    }
+    task3_client(NativeExecutableSpec) {
+      sources.cpp.source {
+        srcDir '.'
+        include 'task3_client.cpp'
+      }
+    }
+    task3_server(NativeExecutableSpec) {
+      sources.cpp.source {
+        srcDir '.'
+        include 'task3_server.cpp'
+      }
+    }
+  }
+}

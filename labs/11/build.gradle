@@ -1,0 +1,37 @@
+apply plugin: 'cpp'
+
+model {
+  binaries {
+    all {
+      cppCompiler.args "-std=c++14"
+      linker.args "-lpthread"
+      linker.args "-lboost_system"
+    }
+  }
+  components {
+    dns(NativeExecutableSpec) {
+      sources.cpp.source {
+        srcDir '.'
+        include 'task1.cpp'
+      }
+    }
+    arp(NativeExecutableSpec) {
+      sources.cpp.source {
+        srcDir '.'
+        include 'task2.cpp'
+      }
+    }
+    chat_client(NativeExecutableSpec) {
+      sources.cpp.source {
+        srcDir '.'
+        include 'chat_client.cpp'
+      }
+    }
+    chat_server(NativeExecutableSpec) {
+      sources.cpp.source {
+        srcDir '.'
+        include 'chat_server.cpp'
+      }
+    }
+  }
+}
